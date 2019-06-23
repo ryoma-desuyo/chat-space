@@ -12,7 +12,7 @@
 ## membersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 
 ### Association
@@ -36,7 +36,7 @@
 ## textテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|text|null: false|
+|text|text| |
 |image|image| |
 |created_at|datetime|null: false|
 |group_id|integer|null: false|
