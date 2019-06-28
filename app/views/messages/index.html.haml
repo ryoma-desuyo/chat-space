@@ -1,0 +1,35 @@
+-# .Notice
+-#     グループを作成しました
+.Side
+    .Side-header
+        .Side-header__box
+            %p name
+            = fa_icon 'edit', class: "Side-header__box__btn--icon"
+            = fa_icon 'cog', class: "Side-header__box__btn--icon"
+    .Groups
+        .Groups__group
+            %h1 group1
+            %p hello
+.Contents
+    .Main-header
+        .Main-header__box
+            .Main-header__box__upper
+                %h1 group1
+                %p Member: ryoma
+            .Main-header__btn
+                Edit
+    .Messages
+        .Messages__box
+            %h1 ryoma
+            %h2 2019/06/20
+            %h3 hello, world!
+    .Form
+        .Form__box
+            .Form__box__input
+                =form_for (@message)do |f|
+                    %label.upload-label{for: "file_button"}
+                        %i.fa.fa-picture-o.Form__box__input__btn--icon
+                        = f.file_field :image, id: "file_button"
+                %p type a message
+            .Form__send
+                %h1 Send
