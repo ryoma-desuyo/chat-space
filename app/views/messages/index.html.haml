@@ -1,13 +1,4 @@
-.Side
-    .Side-header
-        .Side-header__box
-            %p name
-            = fa_icon 'edit', class: "Side-header__box__btn--icon"
-            = fa_icon 'cog', class: "Side-header__box__btn--icon"
-    .Groups
-        .Groups__group
-            %h1 group1
-            %p hello
+= render "devise/shared/side_header"
 .Contents
     .Main-header
         .Main-header__box
@@ -21,13 +12,12 @@
             %h1 ryoma
             %h2 2019/06/20
             %h3 hello, world!
-    .Form
-        .Form__box
-            .Form__box__input
-                =form_for (@message)do |f|
-                    %label.upload-label{for: "file_button"}
-                        %i.fa.fa-picture-o.Form__box__input__btn--icon
-                        = f.file_field :image, id: "file_button"
-                %p type a message
-            .Form__send
-                %h1 Send
+
+    .form
+        %form
+            %input.form__message
+            .form__mask
+                %label.form__mask__image
+                    = fa_icon 'picture-o', class: 'icon'
+                    %input.hidden{type: 'file'}
+            %input.form__submit{type: 'submit', value: 'Send'}
