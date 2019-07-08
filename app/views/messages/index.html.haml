@@ -2,22 +2,19 @@
 .Contents
     .Main-header
         .Main-header__box
-            .Main-header__box__upper
-                %h1 group1
+            %h3.header__name
+                = current_user.name
                 %p Member: ryoma
             .Main-header__btn
                 Edit
-    .Messages
-        .Messages__box
-            %h1 ryoma
-            %h2 2019/06/20
-            %h3 hello, world!
+    .messages
+        = render @messages
 
     .form
-        %form
-            %input.form__message
+        = form_for [@group, @message] do |f|
+            = f.text_field :content, class: 'form__message', placeholder: 'type a message'
             .form__mask
-                %label.form__mask__image
+                = f.label :image, class: 'form__mask__image' do
                     = fa_icon 'picture-o', class: 'icon'
-                    %input.hidden{type: 'file'}
-            %input.form__submit{type: 'submit', value: 'Send'}
+                    = f.file_field :image, class: 'hidden'
+            = f.submit 'Send', class: 'form__submit'
