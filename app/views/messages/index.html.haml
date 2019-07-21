@@ -2,11 +2,13 @@
 .Contents
     .Main-header
         .Main-header__box
-            %h3.header__name
-                = current_user.name
-                %p Member: ryoma
+            %h1.header__name
+                = @group.name
+                %p.header__member
+                    = current_user.name
             .Main-header__btn
-                Edit
+                = link_to edit_group_path(@group) do
+                    Edit
     .messages
         = render @messages
 
