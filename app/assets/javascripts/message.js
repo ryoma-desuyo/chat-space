@@ -2,8 +2,7 @@ $(function(){
 
 
   function buildHTML(message){
-
-    var img = message.img.url
+    var img = message.img.url == null ? " " :` <img class='lower-message__image' src=${message.img.url}></img>`
     var html = `<div>
                         <div class="message">
                         <div class="upper-message">
@@ -18,12 +17,13 @@ $(function(){
                         <p class="lower-message__content">
                         ${message.content}
                         </p>
-
+                        ${img}
                         </div>
                         </div>
                 </div>`
     return html;
   }
+  
 
   $('#new_message').on('submit', function(e){
     e.preventDefault(e);
@@ -41,9 +41,11 @@ $(function(){
       console.log(message);
       var html = buildHTML(message);
       $('.messages').append(html)
-      $('.form__message').val('')
-      $('.hidden').val('')
+      $('form')[0].reset();
       $('div.messages').animate({scrollTop: 30000});
+    })
+    .fail(function(){
+      alert('メッセージを入力してください');
     })
   })
 });
