@@ -20,7 +20,6 @@ $(function(){
 
   $("#user-search-field").on("keyup", function() {
     var input = $("#user-search-field").val();
-    console.log(input);
     
     $.ajax({
       type: 'GET',
@@ -35,11 +34,10 @@ $(function(){
         users.forEach(function(users){
           var html = appendUser(users);
           $('#user-search-result').append(html)
-      console.log("OK")
         });
       }
       else {
-        //("メンバーを入力してください");
+        ("メンバーを入力してください");
       }
     })
     .fail(function() {
@@ -50,15 +48,12 @@ $(function(){
   $("#user-search-result").on('click', '.user-search-add', function(){
     var user_name = $(this).attr('data-user-name')
     var user_id = $(this).attr('data-user-id')
-    console.log(user_id)
     var html = appendMember(user_name, user_id);
     $("#chat-group-users").append(html)
       $(this).attr('user_id, user_name');
       $(this).parent().remove();
-  console.log('botton');
   })
   $("#chat-group-users").on('click', '.user-search-remove', function(){
     $(this).parent().remove();
-    console.log('delete');
   });
 });
