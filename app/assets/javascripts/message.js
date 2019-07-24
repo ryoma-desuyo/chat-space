@@ -42,7 +42,7 @@ $(function(){
       var html = buildHTML(message);
       $('.messages').append(html)
       $('form')[0].reset();
-      $('div.messages').animate({scrollTop: 30000});
+      $('div.messages').animate({scrollTop: 300000});
     })
     .fail(function(){
       alert('メッセージを入力してください');
