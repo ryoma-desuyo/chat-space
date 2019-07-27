@@ -2,7 +2,7 @@
 .Contents
     .Main-header
         .Main-header__box
-            %h1.header__name
+            %h1.header__name#currentGroupID{data: {group_id: "#{@group.id}" }}
                 = @group.name
             %ul
                 Member :
