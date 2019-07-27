@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function() {
 
 
   function buildHTML(message){
@@ -53,7 +53,6 @@ $(function(){
 
   var reloadMessages = function() {
     last_message_id = $('.message:last').data('message-id');
-    console.log(last_message_id)
     var currentGroupId = $('#currentGroupID').data('group-id')
     $.ajax({
       url: `/groups/${currentGroupId}/api/messages`,
