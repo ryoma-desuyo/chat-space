@@ -52,6 +52,7 @@ $(document).on('turbolinks:load', function() {
 
 
   var reloadMessages = function() {
+    if (window.location.href.match(/\/groups\/\d+\/messages/)){
     last_message_id = $('.message:last').data('message-id');
     var currentGroupId = $('#currentGroupID').data('group-id')
     $.ajax({
@@ -73,7 +74,7 @@ $(document).on('turbolinks:load', function() {
     .fail(function() {
       alert('自動更新に失敗しました');
     })
-
+    };
   };
   setInterval(reloadMessages, 5000);
 });
