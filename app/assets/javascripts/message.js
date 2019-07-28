@@ -51,7 +51,8 @@ $(document).on('turbolinks:load', function() {
   });
 
 
-  var reloadMessages = function() {
+  var reloadMessages = function() {;
+    console.log(window.location.pathname.match(/\/groups\/\d+\/messages/));
     if (window.location.pathname.match(/\/groups\/\d+\/messages/)){
     last_message_id = $('.message:last').data('message-id');
     var currentGroupId = $('#currentGroupID').data('group-id')
