@@ -51,7 +51,7 @@ $(document).on('turbolinks:load', function() {
   });
 
 
-  var reloadMessages = function() {;
+  var reloadMessages = function() {
 
     last_message_id = $('.message:last').data('message-id');
     var currentGroupId = $('#currentGroupID').data('group-id')
